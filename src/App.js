@@ -2,7 +2,6 @@ import { Component } from 'react';
 import MovieList from './movieList';
 import Navbar from './navbar';
 import { moviesData } from './moviesData';
-
 import './index.css';
 
 class App extends Component {
@@ -10,7 +9,7 @@ class App extends Component {
         super();
         this.state = {
             movies: moviesData,
-            cartCount: 0
+            cartCount: 0,
         };
     }
 
@@ -51,22 +50,22 @@ class App extends Component {
         let { movies, cartCount } = this.state;
         const idx = movies.indexOf(movie);
         movies[idx].Cart = !movies[idx].Cart;
-        if(movies[idx].Cart){
+        if (movies[idx].Cart) {
             cartCount++;
-        } else{
+        } else {
             cartCount--;
         }
         this.setState({
             movies: movies,
-            cartCount: cartCount
+            cartCount: cartCount,
         });
     };
 
     render() {
-        const {movies, cartCount} = this.state;
+        const { movies, cartCount } = this.state;
         return (
             <>
-                <Navbar cartCount={cartCount}/>
+                <Navbar cartCount={cartCount} />
                 <MovieList
                     movies={movies}
                     addStars={this.addStars}
